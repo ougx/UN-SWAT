@@ -8,6 +8,7 @@
 #define soln        this%parval(5)
 #define solm        this%parval(6)
 #define hentry      this%parval(4)
+#define dispty      this%parval(8)
 
 #define nearSat(h)  abs((h) - merge(hentry, 0., itype>=soilRetentionFunction%BrooksCorey)) < veryTiny
 #define nearOne(s)  abs((s) - 1.0) < veryTiny
@@ -52,11 +53,11 @@ contains
     read(line, *) iitype
     select case (iitype)
     case (soilRetentionFunction%vanGenuchten)
-      npar = 6
+      npar = 8
     case (soilRetentionFunction%BrooksCorey)
-      npar = 6
+      npar = 8
     case (soilRetentionFunction%Gardner)
-      npar = 6
+      npar = 8
     case default
       print*, 'Undefined Soil Model Type at Line:'//adjustl(trim(line))
       stop
@@ -64,6 +65,7 @@ contains
 
     this%isoiltype = iitype
     allocate(this%parval(npar))
+    this%parval = 0
     read(line, *) iitype, this%parval
   end subroutine
 

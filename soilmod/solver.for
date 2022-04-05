@@ -5,8 +5,9 @@
         real              :: truncate_abs  = 0.         ! absolute truncation error
         real              :: truncate_rel  = 1e-3       ! relative truncation error (multiply pressure)
         real              :: hclose        = 1e-6       ! maximum head change between linear iterations
+        real              :: cclose        = 1e-6       ! maximum concentration change between linear iterations
         real              :: dt_init       = 1.         ! initial dt
-        real              :: dt_limit      = 1e-6       ! smallest dt 
+        real              :: dt_limit      = 1e-6       ! smallest dt
         real              :: dt_max        = 1024       ! largest dt
         real              :: rmin          = 0.1        ! smallest dt factor
         real              :: rmax          = 4.         ! largest dt factor
